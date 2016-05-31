@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align: center">
+<h1>JER/KEY PASSPHRASE GENERATOR</h1>
+<p>TRY ONE OF THESE ON FOR SIZE</p>
+<p style="
+font-size: 200%;
+font-weight: bold;
+white-space: nowrap
+">
+<code id="jerkey" ></code>
+</p>
+
+<script type="cocks" id="obscenity">
+ASS
+BONER
+BUTT
+COCK
+CUM
+CUNT
+DICK
+DONG
+FAG
+FAGGOT
+FAP
+FUCK
+GAY
+JERK
+JIZZ
+PENIS
+PISS
+PRICK
+RAPE
+SHIT
+SLUT
+SPERM
+TARD
+TIT
+WANG
+WANK
+WEED
+WHORE
+</script>
+
+<script type="dongs" id="wordpool">
+AIDS
+ARF
+BACK
+BADONK
+BAG
+BALL
+BANG
+BARGLE
+BEAT
+BIP
+BITE
+BLAG
+BLARG
+BLARGH
+BLEEP
+BLING
+BLOG
+BLONK
+BLOP
+BLORF
+BLORK
+BLOW
+BLUH
+BLURF
+BLURGH
+BLURP
+BOFF
+BOMP
+BOMPH
+BONE
+BONG
+BOOB
+BOOP
+BOT
+BOWEL
+BRAP
+BUH
+BUK
+BUKKAKE
+BUP
+BURF
+BURPH
+BUTTER
+BWOOP
+CAKE
+CAST
+CHEESE
+CHILD
+CHOKE
+CHOMP
+CHRIST
+CLAMP
+CLONK
+CLOWN
+CLURF
+COOCHIE
+COP
+CRAP
+CREAM
+CYBER
+DALEK
+DANGLE
+DAPPA
+DAPPY
+DARFY
+DEEP
+EYE
+FACE
+FAT
+FIST
+FLEET
+FUDGE
+GOD
+GRIEF
+GROPE
+HEAD
+HIT
+HITLER
+HOLE
+HONK
+HOP
+HORK
+JOB
+LESS
+LICK
+LIKE
+LINE
+LOAD
+LORD
+LOVE
+MARK
+MASTER
+MEMBER
+MOBILE
+MONSTER
+NUT
+PARTY
+PLAY
+PLOP
+PLUG
+POLE
+PRONG
+PUNCH
+PUNK
+QUEER
+RACER
+RING
+RUB
+SCREW
+SEX
+SHIP
+SHOT
+SHRIVEL
+SICK
+SKIRT
+SKULL
+SLAP
+SLASH
+SLICE
+SLOB
+SMEAR
+SMITH
+SMOOSH
+SNORKLE
+SNURK
+SOUR
+SPAM
+SPAZ
+SPEAR
+SPEED
+SPLOOSH
+SPLORK
+SPLORP
+SPLORSH
+SPLORT
+SPLUB
+SPLUP
+SPLURK
+SPLURP
+SPLUT
+SPORK
+SPREAD
+SPURF
+SPURT
+SPURT
+SQUIGGLE
+SQUIP
+SQUIRK
+SQUIRP
+SQUIRT
+STEAM
+STOP
+STORM
+STREAK
+STRETCH
+STRIKE
+STROKE
+STUFF
+SUCK
+SUPER
+SWEAT
+SWING
+TAN
+TEA
+TENTACLE
+THING
+THROAT
+TIGHT
+TIME
+TINKLE
+TOILET
+TONGUE
+TOWEL
+TRANNY
+TRAP
+TRON
+TUBE
+TWIST
+TWO
+TYPE
+UBER
+UNF
+UNGH
+URBLE
+URG
+URINAL
+URINE
+URK
+URP
+USER
+VROING
+VWOOP
+WAR
+WATER
+WET
+WHACK
+WHIP
+WHUMP
+WISE
+WRAP
+WUH
+WUMPUS
+ZOING
+</script>
+
+<script type="pricks" id="suffixlist">
+ABLE
+ALOT
+ARAMA
+ASAURUS
+ATORIUM
+ENBERG
+ER
+ESQUE
+FEST
+IBLE
+ILIFY
+INATE
+ING
+ISIL
+IZE
+MANIA
+PHILE
+VILLE
+WORTHY
+</script>
+
+<script type="dicks" id="why">
+ERY
+ITY
+ORY
+TY
+Y
+</script>
+
+<script>
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+var obscenity  = document.getElementById("obscenity" ).innerHTML.match(/\S+/g);
+var wordpool   = document.getElementById("wordpool"  ).innerHTML.match(/\S+/g);
+var suffixlist = document.getElementById("suffixlist").innerHTML.match(/\S+/g);
+var why        = document.getElementById("why"       ).innerHTML.match(/\S+/g);
+shuffle(obscenity);
+shuffle(wordpool);
+shuffle(suffixlist);
+shuffle(why);
+
+function genword(first){
+	var word = [];
+	word.push(first.pop());
+	word.push(wordpool.pop());
+	shuffle(word);
+	return word.join("");
+}
+
+function genpassphrase(){
+	var passphrase = [];
+	passphrase.push(genword(obscenity));
+	passphrase.push(genword(obscenity));
+	passphrase.push(genword(wordpool));
+	passphrase.push(genword(wordpool));
+	shuffle(passphrase);
+
+	passphrase[0] += suffixlist.pop();
+	shuffle(passphrase);
+	passphrase[0] += why.pop();
+	shuffle(passphrase);
+	return passphrase.join(" ");
+}
+
+document.getElementById("jerkey").innerHTML  = genpassphrase() + "</br>";
+document.getElementById("jerkey").innerHTML += genpassphrase() + "</br>";
+document.getElementById("jerkey").innerHTML += genpassphrase() + "</br>";
+document.getElementById("jerkey").innerHTML += genpassphrase() ;
+</script>
+
+</body>
+</html>
